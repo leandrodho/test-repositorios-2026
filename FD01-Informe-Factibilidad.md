@@ -147,14 +147,14 @@ Integrantes:
 
 **Informe de Factibilidad**
 
-1. # <a name="_heading=h.8dhhg84paxsu"></a>**Descripción del proyecto**
-   1. ## <a name="_heading=h.rv4dzn6jshnr"></a>**Nombre del proyecto**
+# <a name="_heading=h.8dhhg84paxsu"></a>**1. Descripción del proyecto**
+## <a name="_heading=h.rv4dzn6jshnr"></a>**1.2 Nombre del proyecto**
       Sistema de Buscador Unificado de Recursos para Bibliotecas Físicas y Virtuales
-   1. ## <a name="_heading=h.78qeju2b3os5"></a>**Duración del proyecto**
+## <a name="_heading=h.78qeju2b3os5"></a>**1.3 Duración del proyecto**
       Inicio: 25 de Marzo
 
 Fin: 24 de junio
-1. ## <a name="_heading=h.on5my4tm1g7f"></a>**Descripción**
+## <a name="_heading=h.on5my4tm1g7f"></a>**1.4 Descripción**
    El proyecto consiste en el diseño y desarrollo de una plataforma web integral orientada a centralizar el acceso a la información bibliográfica. El sistema permitirá a los usuarios (estudiantes y docentes) realizar búsquedas simultáneas en dos entornos: el catálogo de inventario físico (libros en estanterías) y el repositorio de recursos digitales (archivos PDF, documentos y libros electrónicos). La solución prioriza la eficiencia en la investigación académica, permitiendo conocer en tiempo real la disponibilidad de préstamos físicos y proporcionando enlaces directos de descarga o lectura para materiales virtuales. El sistema será desarrollado bajo el patrón ASP.NET MVC, utilizando SQL Server para la gestión de datos y Terraform para la provisión de infraestructura en Azure.
 
 1. ## <a name="_heading=h.13u55mepv7uv"></a>**Objetivos**
