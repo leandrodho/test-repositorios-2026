@@ -108,30 +108,30 @@ Integrantes:
 
 **Informe de Factibilidad**
 
-1. # **Descripción del proyecto** {#descripción-del-proyecto}
+# **1. Descripción del proyecto** {#descripción-del-proyecto}
 
-   1. ## **Nombre del proyecto** {#nombre-del-proyecto}
+## **1.1Nombre del proyecto** {#nombre-del-proyecto}
 
-      Sistema de Buscador Unificado de Recursos para Bibliotecas Físicas y Virtuales
+Sistema de Buscador Unificado de Recursos para Bibliotecas Físicas y Virtuales
 
-   2. ## **Duración del proyecto** {#duración-del-proyecto}
+## **1.2 Duración del proyecto** {#duración-del-proyecto}
 
-      Inicio: 25 de Marzo
+Inicio: 25 de Marzo
 
-   Fin: 24 de junio
+Fin: 24 de junio
 
-   3. ## **Descripción** {#descripción}
+## **1.3 Descripción** {#descripción}
 
-      El proyecto consiste en el diseño y desarrollo de una plataforma web integral orientada a centralizar el acceso a la información bibliográfica. El sistema permitirá a los usuarios (estudiantes y docentes) realizar búsquedas simultáneas en dos entornos: el catálogo de inventario físico (libros en estanterías) y el repositorio de recursos digitales (archivos PDF, documentos y libros electrónicos). La solución prioriza la eficiencia en la investigación académica, permitiendo conocer en tiempo real la disponibilidad de préstamos físicos y proporcionando enlaces directos de descarga o lectura para materiales virtuales. El sistema será desarrollado bajo el patrón ASP.NET MVC, utilizando SQL Server para la gestión de datos y Terraform para la provisión de infraestructura en Azure.  
+   El proyecto consiste en el diseño y desarrollo de una plataforma web integral orientada a centralizar el acceso a la información bibliográfica. El sistema permitirá a los usuarios (estudiantes y docentes) realizar búsquedas simultáneas en dos entornos: el catálogo de inventario físico (libros en estanterías) y el repositorio de recursos digitales (archivos PDF, documentos y libros electrónicos). La solución prioriza la eficiencia en la investigación académica, permitiendo conocer en tiempo real la disponibilidad de préstamos físicos y proporcionando enlaces directos de descarga o lectura para materiales virtuales. El sistema será desarrollado bajo el patrón ASP.NET MVC, utilizando SQL Server para la gestión de datos y Terraform para la provisión de infraestructura en Azure.  
       
 
-   4. ## **Objetivos** {#objetivos}
+   ## **1.4 Objetivos** {#objetivos}
 
-      1. ### **Objetivo general** {#objetivo-general}
+   ### **1.4.1 Objetivo general** {#objetivo-general}
 
 * Desarrollar una plataforma web unificada que optimice la localización y el acceso a recursos bibliográficos físicos y digitales, mejorando la experiencia de búsqueda y la gestión de información para la comunidad académica.
 
-  2. ### **Objetivos específicos** {#objetivos-específicos}
+   ### **1.4.2 Objetivos específicos** {#objetivos-específicos}
 
 * Diseñar un sistema de búsqueda multicanal que filtre resultados por título, autor, categoría y tipo de recurso (físico o virtual).  
 * Implementar un módulo de gestión de inventario para controlar la disponibilidad y ubicación de los textos físicos en la biblioteca.  
@@ -140,23 +140,23 @@ Integrantes:
 * Establecer un sistema de autenticación de usuarios que diferencie entre administradores (bibliotecarios) y usuarios finales (estudiantes/docentes).  
 * Garantizar la escalabilidad del sistema, permitiendo la futura integración con bases de datos de otras facultades o instituciones.
 
-2. # **Riesgos** {#riesgos}
+# **2. Riesgos** {#riesgos}
 
 * **Desincronización de Inventario Físico:** Existe la posibilidad de que la base de datos no refleje en tiempo real si un libro físico ha sido tomado de la estantería sin ser registrado, lo que podría generar desconfianza en el usuario al encontrar datos inexactos.  
 * **Complejidad en la Integración de Recursos:** La carga de archivos digitales de gran tamaño o formatos no compatibles podría afectar los tiempos de respuesta del servidor y la experiencia de navegación del estudiante.  
 * **Limitación de Créditos en la Nube:** Al utilizar Azure para el despliegue final, existe el riesgo de agotar la cuota de servicios gratuitos o créditos de estudiante antes de finalizar las pruebas de rendimiento, lo que dificultará la disponibilidad operativa a largo plazo.  
 * **Curva de Aprendizaje en Infraestructura como Código:** El uso de Terraform para el análisis económico y despliegue requiere una configuración precisa; cualquier error en los scripts podría resultar en una estimación de costos errónea o fallos en la provisión de recursos en Azure.
 
-3. # **Análisis de la situación actual** {#análisis-de-la-situación-actual}
+# **3. Análisis de la situación actual** {#análisis-de-la-situación-actual}
 
-   1. ## **Planteamiento del problema** {#planteamiento-del-problema}
+   ## **3.1 Planteamiento del problema** {#planteamiento-del-problema}
 
-      Si bien las instituciones académicas enfatizan constantemente la importancia del acceso a la información y la investigación de calidad, los métodos de búsqueda y localización de recursos bibliográficos pueden parecer anticuados y poco efectivos. Es necesario modernizar la forma en que se procesa el acceso a la información en las facultades y bibliotecas universitarias. Aunque los estudiantes y docentes obtienen bases teóricas para sus investigaciones, no encuentran herramientas tecnológicas integradas que les permitan localizar de manera ágil tanto el material físico como el digital en un solo lugar.  
-      La falta de una plataforma centralizada que combine el inventario físico con el repositorio virtual limita la posibilidad de que el tiempo invertido en la búsqueda se traduzca en una investigación eficiente. Este desajuste entre la existencia del recurso y su accesibilidad genera desmotivación: los investigadores no logran visualizar la totalidad de la oferta bibliográfica de la institución en una sola interfaz, mientras que los administradores de la biblioteca carecen de un sistema unificado que vincule la gestión de estanterías con los archivos electrónicos.
+   Si bien las instituciones académicas enfatizan constantemente la importancia del acceso a la información y la investigación de calidad, los métodos de búsqueda y localización de recursos bibliográficos pueden parecer anticuados y poco efectivos. Es necesario modernizar la forma en que se procesa el acceso a la información en las facultades y bibliotecas universitarias. Aunque los estudiantes y docentes obtienen bases teóricas para sus investigaciones, no encuentran herramientas tecnológicas integradas que les permitan localizar de manera ágil tanto el material físico como el digital en un solo lugar.  
+   La falta de una plataforma centralizada que combine el inventario físico con el repositorio virtual limita la posibilidad de que el tiempo invertido en la búsqueda se traduzca en una investigación eficiente. Este desajuste entre la existencia del recurso y su accesibilidad genera desmotivación: los investigadores no logran visualizar la totalidad de la oferta bibliográfica de la institución en una sola interfaz, mientras que los administradores de la biblioteca carecen de un sistema unificado que vincule la gestión de estanterías con los archivos electrónicos.
 
-   2. ## **Consideraciones de hardware y software** {#consideraciones-de-hardware-y-software}
+   ## **3.2 Consideraciones de hardware y software** {#consideraciones-de-hardware-y-software}
 
-      Hardware:  
+   Hardware:  
 * **CPU:** 2 vCPU mínimo  
 * **Memoria RAM**: 4 GB  
 * **Almacenamiento:** SSD para la base de datos de libros, logs e historiales de búsqueda.
@@ -169,11 +169,11 @@ Integrantes:
 * **Infraestructura como Código:** **Terraform v1.x** (para el aprovisionamiento y análisis económico).  
 * **Gestión de Versiones:** GitHub (Integración con Wikis, Projects y Actions).
 
-4. # **Estudio de Factibilidad** {#estudio-de-factibilidad}
+# **4. Estudio de Factibilidad** {#estudio-de-factibilidad}
 
-   1. ## **Factibilidad Técnica** {#factibilidad-técnica}
+   ## **4.1 Factibilidad Técnica** {#factibilidad-técnica}
 
-      El proyecto resulta factible desde el punto de vista técnico, ya que el equipo de desarrollo cuenta con las competencias necesarias en ingeniería de sistemas para implementar y mantener la arquitectura propuesta bajo el patrón ASP.NET MVC. La solución utiliza tecnologías robustas y de amplio soporte, garantizando la estabilidad operativa del buscador unificado.  
+El proyecto resulta factible desde el punto de vista técnico, ya que el equipo de desarrollo cuenta con las competencias necesarias en ingeniería de sistemas para implementar y mantener la arquitectura propuesta bajo el patrón ASP.NET MVC. La solución utiliza tecnologías robustas y de amplio soporte, garantizando la estabilidad operativa del buscador unificado.  
       La viabilidad técnica se sustenta en los siguientes pilares:  
 * **Dominio del Stack Tecnológico**: El equipo posee experiencia en el uso de C\# y el framework .NET, lo que facilita el desarrollo de una lógica de negocio eficiente para la búsqueda simultánea de recursos.  
 * **Gestión de Base de Datos**: Se implementará SQL Server para la administración de inventarios físicos y metadatos digitales, asegurando una integración fluida con los servicios de nube.  
@@ -183,11 +183,11 @@ Integrantes:
   La estructura modular del sistema asegura que la plataforma pueda escalar y adaptarse con facilidad, permitiendo futuras actualizaciones sin afectar la disponibilidad de los servicios bibliotecarios actuales.
 
 
-  2. ## **Factibilidad Económica** {#factibilidad-económica}
+  2. ## **4.2 Factibilidad Económica** {#factibilidad-económica}
 
      Este apartado evalúa la inversión necesaria para el desarrollo y puesta en marcha del sistema, asegurando que los recursos financieros sean utilizados de manera eficiente.
 
-     1. ### **Costos de software** {#costos-de-software}
+     1. ### **4.2.1 Costos de software** {#costos-de-software}
 
         Incluye las herramientas digitales y servicios de infraestructura en la nube proyectados. Como indica la rúbrica, los costos de Azure se basan en el análisis técnico de Terraform.  
         
@@ -202,7 +202,7 @@ Integrantes:
 
         ### 
 
-     2. ### **Costos de recursos humanos** {#costos-de-recursos-humanos}
+     2. ### **4.2.2 Costos de recursos humanos** {#costos-de-recursos-humanos}
 
         Contempla la inversión en horas de trabajo para el equipo de dos integrantes que cubren las áreas de Frontend y Backend.  
         
