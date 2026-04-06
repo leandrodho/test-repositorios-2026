@@ -1,4 +1,4 @@
-![Logo UPT](Aspose.Words.6a57f384-4a85-43ff-84b9-2798e0a9b150.001.png)
+![Logo Upt](img/upt.png)
 
 # **UNIVERSIDAD PRIVADA DE TACNA**
 **FACULTAD DE INGENIERÍA** **Escuela Profesional de Ingeniería de Sistemas**
