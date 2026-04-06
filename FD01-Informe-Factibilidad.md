@@ -1,6 +1,6 @@
 ﻿
 
-![C:\Users\EPIS\Documents\upt.png](Aspose.Words.753567ca-054f-4d05-9b67-149d37df677c.001.png)
+![C:\Users\EPIS\Documents\upt.png](Aspose.Words.9837292a-a338-4f05-8fd2-5d1971924843.001.png)
 
 **UNIVERSIDAD PRIVADA DE TACNA**
 
@@ -301,7 +301,7 @@ La estructura modular del sistema asegura que la plataforma pueda escalar y adap
 
       **Tasa de interés:** 3%
 
-      ![](Aspose.Words.753567ca-054f-4d05-9b67-149d37df677c.002.png)
+      ![](Aspose.Words.9837292a-a338-4f05-8fd2-5d1971924843.002.png)
    1. #### <a name="_heading=h.zc7j6il18254"></a>**Relación Beneficio/Costo**
 |B/C|1\.44|
 | :- | -: |
