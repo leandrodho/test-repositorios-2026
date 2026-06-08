@@ -1,12 +1,12 @@
 # NexusLib - Buscador Unificado de Recursos Bibliográficos
 
-NexusLib es una plataforma web híbrida diseñada para resolver la fragmentación de la información académica en la Universidad Privada de Tacna. El sistema unifica de manera ágil y concurrente las consultas del catálogo físico local con repositorios digitales externos (Alpha Cloud y E-Libro), ofreciendo un espacio personal para estudiantes y un panel administrativo integrado.
+NexusLib es una plataforma web híbrida de microservicios diseñada para resolver la fragmentación de la información académica en la Universidad Privada de Tacna. El sistema unifica de manera ágil y concurrente las consultas del catálogo físico de la universidad con repositorios digitales externos (Alpha Cloud y E-Libro), ofreciendo un espacio personal para estudiantes y un panel administrativo integrado.
 
 ---
 
 ## 🚀 Características Principales
 
-El sistema implementa **9 Requerimientos Funcionales** estratégicos estructurados bajo patrones de diseño avanzados (*Facade, Adapter y Strategy*):
+El sistema implementa **9 Requerimientos Funcionales** estratégicos estructurados bajo patrones de diseño de software (*Facade, Adapter y Strategy*):
 
 * **Búsqueda Unificada (RF-01):** Consulta simultánea distribuida entre el inventario local MySQL y las APIs externas.
 
@@ -17,7 +17,7 @@ El sistema implementa **9 Requerimientos Funcionales** estratégicos estructurad
 * **Disponibilidad en Sala (RF-03):** Localización física en tiempo real (Piso y Estante) con control de existencias.
 
 
-* **Filtrado Avanzado (RF-04):** Segmentación por Origen, Disponibilidad, Temas y Criterios.
+* **Filtrado Avanzado (RF-04):** Segmentación por Origen, Disponibilidad, Temas y Criterios de búsqueda.
 
 
 * **Acceso Digital (RF-05):** Enlaces directos a visores externos o descargas autorizadas.
@@ -40,55 +40,37 @@ El sistema implementa **9 Requerimientos Funcionales** estratégicos estructurad
 
 ## 📋 Requisitos del Sistema (Prerrequisitos)
 
-Antes de levantar el proyecto de forma local, asegúrate de contar con el siguiente entorno configurado:
+Para ejecutar y compilar el proyecto en un entorno de desarrollo local, se requiere contar con las siguientes herramientas instaladas y configuradas:
 
-* **Servidor Web / Backend:** PHP >= 8.2.12 (con soporte para Programación Orientada a Objetos y tipado fuerte).
-
-
-* **Extensiones PHP Requeridas:** `pdo_mysql`, `curl`, `json`, `mbstring`.
-* **Gestor de Dependencias:** Composer (para la orquestación de librerías).
-* **Base de Datos:** MySQL Server >= 8.0.
+* **XAMPP:** Con los módulos de **Apache** y **MySQL** completamente activos desde el Panel de Control.
+* **PHP:** Versión **8.2.12** recomendada (con soporte para Programación Orientada a Objetos y extensiones `pdo_mysql`, `curl`, `json` habilitadas).
 
 
-* **Frontend:** Navegador web moderno compatible con ECMAScript 6 (ES6) y diseño responsivo.
+* **Gestor de Base de Datos:** Herramientas visuales como **HeidiSQL** o **phpMyAdmin** para administrar y cargar los esquemas relacionales.
+* **Navegador Web:** Compatible con estándares ECMAScript 6 (ES6) para el renderizado correcto del frontend dinámico.
 
 
 
 ---
 
-## ⚙️ Parámetros de Configuración (`.env`)
+## ⚙️ Parámetros de Configuración de Base de Datos
 
-El proyecto utiliza variables de entorno para manejar las credenciales de forma segura. Duplica el archivo de ejemplo y configura tus accesos locales:
+A diferencia de configuraciones globales mediante archivos `.env`, la conexión con el motor relacional de NexusLib se gestiona directamente en las clases de configuración de los microservicios que interactúan con datos locales.
 
-```bash
-cp .env.example .env
+Deberás configurar los parámetros de conexión editando obligatoriamente los siguientes **3 archivos** dentro del repositorio:
 
-```
+1. `nexuslib/inventory-service/app/Config/Database.php`
+2. `nexuslib/user-library-service/app/Config/Database.php`
+3. `nexuslib/auth-service/app/Config/Database.php`
 
-Abre el archivo `.env` creado y edita las siguientes directrices según tu entorno de desarrollo:
+En cada uno de los archivos mencionados, localiza y modifica las siguientes variables con las credenciales correspondientes a tu servidor MySQL local:
 
-```ini
-# Configuración del Entorno de Aplicación
-APP_ENV=local
-APP_DEBUG=true
-APP_URL=http://localhost:8000
-
-# Conexión a Base de Datos Local (MySQL)
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=nexuslib_db
-DB_USERNAME=tu_usuario_mysql
-DB_PASSWORD=tu_contrasena_mysql
-
-# Llave Secreta para Cifrado de Tokens de Sesión
-JWT_SECRET=tu_clave_secreta_super_segura_de_32_caracteres
-
-# Credenciales de APIs de Proveedores Digitales Externos
-ALPHA_CLOUD_API_KEY=tu_token_de_alpha_cloud
-ALPHA_CLOUD_BASE_URL=https://api.alphacloud.exchange/v1
-
-ELIBRO_API_KEY=tu_token_de_elibro
-ELIBRO_BASE_URL=https://api.elibro.net/v1
+```php
+$host = '127.0.0.1';
+$dbname = 'bd_nexus';
+$user = 'root';
+$pass = '';
+$charset = 'utf8mb4';
 
 ```
 
@@ -96,11 +78,11 @@ ELIBRO_BASE_URL=https://api.elibro.net/v1
 
 ## 🛠️ Procedimiento de Instalación Paso a Paso
 
-Sigue estas instrucciones cronológicas para compilar y ejecutar el proyecto en tu entorno local:
+Sigue estas instrucciones cronológicas para desplegar el proyecto localmente:
 
 ### 1. Clonar el Repositorio
 
-Obtén una copia local del código fuente oficial del proyecto:
+Abre tu terminal y clona el código fuente del proyecto en tu directorio local de trabajo:
 
 ```bash
 git clone https://github.com/UPT-FAING-EPIS/proyecto-si889-2026-i-ul-buscador-unificado-biblioteca.git
@@ -108,67 +90,57 @@ cd proyecto-si889-2026-i-ul-buscador-unificado-biblioteca
 
 ```
 
-### 2. Instalar Dependencias del Backend
+### 2. Configurar e Importar la Base de Datos Local
 
-Ejecuta el gestor para descargar los componentes de enrutamiento o utilitarios del sistema:
+1. Inicia los módulos **Apache** y **MySQL** en el panel de XAMPP.
+2. Abre tu gestor de base de datos de preferencia (**HeidiSQL** o **phpMyAdmin**).
+3. Abre y ejecuta completamente el script base **`schema.sql`** ubicado en la carpeta `nexuslib/database` para inicializar de forma relacional las tablas del sistema (`accounts`, `inventory`, `reserved_books`, `saved_books`).
 
-```bash
-composer install
+### 3. Inicializar el Servidor de Desarrollo Local
 
-```
-
-### 3. Configurar la Base de Datos Local
-
-1. Inicia el servicio de tu servidor MySQL local.
-
-
-2. Crea una nueva base de datos vacía llamada `nexuslib_db`.
-3. Importa los esquemas de tablas transaccionales, índices y datos de prueba provistos ejecutando el siguiente comando en tu terminal (o utilizando herramientas visuales como MySQL Workbench / DBeaver):
-
-```bash
-mysql -u tu_usuario_mysql -p nexuslib_db < database/schema.sql
-
-```
-
-> 📌 **Nota de Integridad:** El archivo `schema.sql` inicializará de manera relacional las tablas de `users`, `books`, `physical_books`, `bookmarked_books` y `reserved_books`.
-> 
-> 
-
-### 4. Inicializar el Servidor de Desarrollo Local
-
-Puedes utilizar el servidor de desarrollo nativo integrado en PHP para levantar la plataforma de manera instantánea:
+Para levantar la plataforma de manera inmediata, puedes utilizar el servidor de desarrollo nativo de PHP corriendo sobre cada módulo. Abre una terminal en la carpeta correspondiente al frontend y ejecuta:
 
 ```bash
 php -S localhost:8000 -t public/
 
 ```
 
-Una vez ejecutado el comando, abre tu navegador web de preferencia e ingresa a la siguiente dirección: **`http://localhost:8000`**
+Una vez activo, abre tu navegador web e ingresa a la dirección: **`http://localhost:8000`**
 
 ---
 
 ## 📂 Estructura General del Proyecto
 
-A continuación se detalla la distribución modular del repositorio bajo el patrón arquitectónico empleado:
+A continuación, se detalla un extracto general de la organización modular del repositorio bajo un esquema de arquitectura limpia y microservicios.
+
+> 💡 **Nota para edición:** Reemplaza este bloque simplificado pegando tu árbol de directorios (*tree*) completo aquí:
 
 ```text
-├── config/             # Archivos de configuración del sistema y variables de entorno.
-├── database/           # Scripts SQL, esquemas relacionales e inventario inicial UPT.
-├── public/             # Punto de entrada de la aplicación (index.php, CSS, JS, Portadas).
-└── src/                # Capa Lógica y de Control del Software.
-    ├── Boundaries/     # Interfaces y componentes gráficos (Dashboard, Formularios).
-    ├── Controls/       # Controladores, Adaptadores (Alpha/E-Libro) y Motores de Búsqueda.
-    └── Entities/       # Modelos de dominio y persistencia de datos físicos/usuarios.
+nexuslib/
+├── frontend/               # Interfaz visual principal y capas de presentación (Boundaries)
+│   ├── public/             # Archivos públicos de acceso (CSS, JS, imágenes, index.php)
+│   ├── Views/              # Estructura de vistas (Admin, Layouts, Home, Search, Auth)
+│   └── composer.json
+├── gateway-service/        # Orquestador y Gateway API principal del sistema
+├── alpha-service/          # Microservicio / Adaptador para la plataforma Alpha Cloud
+├── elibro-service/         # Microservicio / Adaptador para la plataforma e-Libro
+├── inventory-service/      # Gestión del inventario físico local de la UPT (MySQL)
+├── auth-service/           # Control de autenticación, usuarios y seguridad
+└── user-library-service/   # Persistencia y lógica de libros guardados y reservas
 
 ```
 
 ---
 
-## 🛡️ Pruebas de Calidad y Seguridad Locales
+## 🛡️ Análisis Estático y Despliegue Seguro (DevSecOps)
 
-Para asegurar que las entradas de texto se encuentren blindadas contra inyecciones SQL o ataques XSS (conforme al requerimiento **RNF-01**), puedes validar el comportamiento de la lógica ejecutando el script de pruebas unitarias:
+Para dar cumplimiento con las normativas de desarrollo seguro y asegurar la calidad del código fuente frente a bugs o vulnerabilidades de inyección, el repositorio tiene integrados flujos de trabajo (*Pipelines*) mediante **GitHub Actions**.
 
-```bash
-php vendor/bin/phpunit --testsuite=Unit
+Las herramientas automatizadas configuradas en el pipeline de Integración Continua (CI) son:
 
-```
+* **SonarQube:** Utilizado para el análisis estático de código, medición de deuda técnica, cobertura y detección de *code smells*.
+* **Snyk / Semgrep:** Herramientas de seguridad encargadas de escanear las dependencias y el código en busca de vulnerabilidades conocidas (OWASP Top 10) antes de autorizar cualquier despliegue en producción.
+
+
+
+Para ejecutar de manera local una revisión rápida de sintaxis y estándares antes de realizar un *Push* al repositorio, puedes utilizar los comandos de análisis estático correspondientes a tu entorno de pruebas configurado.
