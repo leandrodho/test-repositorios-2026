@@ -4,6 +4,14 @@ NexusLib es una plataforma web híbrida de microservicios diseñada para resolve
 
 ---
 
+> [!TIP]
+> ### 🌐 Enlace del Proyecto Desplegado en la Nube
+> La plataforma se encuentra completamente publicada, operativa y disponible para su evaluación en producción. Puedes acceder a la aplicación web en vivo haciendo clic en el siguiente enlace:
+>
+> 👉 **[Visitar Plataforma NexusLib (Azure Live Demo)](http://nexuslib-upt.canadacentral.cloudapp.azure.com/nexuslib/)**
+
+---
+
 ## 🚀 Características Principales
 
 El sistema implementa **9 Requerimientos Funcionales** estratégicos estructurados bajo patrones de diseño de software (*Facade, Adapter y Strategy*):
