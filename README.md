@@ -4,11 +4,11 @@ NexusLib es una plataforma web híbrida de microservicios diseñada para resolve
 
 ---
 
-> [!TIP]
-> ### 🌐 Enlace del Proyecto Desplegado en la Nube
-> La plataforma se encuentra completamente publicada, operativa y disponible para su evaluación en producción. Puedes acceder a la aplicación web en vivo haciendo clic en el siguiente enlace:
->
-> 👉 **[Visitar Plataforma NexusLib (Azure Live Demo)](http://nexuslib-upt.canadacentral.cloudapp.azure.com/nexuslib/)**
+## 🌐 Enlace de Despliegue Cloud
+
+La plataforma se encuentra completamente publicada, operativa y disponible para su evaluación. Puedes acceder a la aplicación web en vivo directamente a través del siguiente enlace:
+
+👉 **[http://nexuslib-upt.canadacentral.cloudapp.azure.com/nexuslib/](http://nexuslib-upt.canadacentral.cloudapp.azure.com/nexuslib/)**
 
 ---
 
